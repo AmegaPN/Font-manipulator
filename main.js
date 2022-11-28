@@ -17,4 +17,22 @@ difference = 0;
 rightWristX = 0;
 leftWristX = 0;
 
+function gotPoses(results)
+{
+    if(results.length > 0)
+    {
+        console.log(results);
 
+        leftWristX = results[0].pose.leftWrist.x;
+        rightWristX = results[0].pose.rightWrist.x;
+        difference = floor(leftWristX - rightWristX);
+    }
+}
+
+function draw()
+{
+    background('#6C91C2');
+    textSize(difference);
+    fill('#FFE787');
+    text('Amega', 50, 400);
+}
